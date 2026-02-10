@@ -4,34 +4,23 @@ function PatientDashboard() {
   const navigate = useNavigate();
 
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h2>👤 Patient Dashboard</h2>
+    <div className="container">
+      <div className="card">
+        <h2>Patient Dashboard</h2>
+        <p>Manage your medicines</p>
 
-      <button onClick={() => navigate("/expiry")} style={btnStyle}>
-        📸 Upload Medicine Photo
-      </button>
+        <button onClick={() => navigate("/expiry")}>
+          Upload Medicine Photo
+        </button>
 
-      <button onClick={() => navigate("/reminders")} style={btnStyle}>
-        📝 Upload Prescription
-      </button>
+        <button className="secondary" onClick={() => navigate("/reminders")}>
+          View Reminders
+        </button>
 
-      <button onClick={() => navigate("/history")} style={btnStyle}>
-        📊 View History
-      </button>
-
-      <button onClick={() => navigate("/profile")} style={btnStyle}>
-        👤 Profile
-      </button>
+        <button className="gray">Profile</button>
+      </div>
     </div>
   );
 }
 
-const btnStyle = {
-  display: "block",
-  margin: "15px auto",
-  padding: "12px 20px",
-  fontSize: "16px",
-};
-
 export default PatientDashboard;
-
