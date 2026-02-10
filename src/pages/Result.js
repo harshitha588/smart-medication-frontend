@@ -1,33 +1,24 @@
-import { useNavigate } from "react-router-dom";
-
 function Result() {
-  const navigate = useNavigate();
-
   return (
-    <div
-      style={{
-        textAlign: "center",
-        marginTop: "100px",
-        padding: "20px"
-      }}
-    >
-      <h1 style={{ color: "green" }}>✅ Success</h1>
-      <p>Your action was completed successfully.</p>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h2>✅ Medicine Analysis Result</h2>
 
-      <button
-        onClick={() => navigate("/patient")}
-        style={{
-          marginTop: "20px",
-          padding: "12px 20px",
-          fontSize: "16px",
-          borderRadius: "6px",
-          cursor: "pointer"
-        }}
-      >
-        Go to Dashboard
-      </button>
+      <div style={{ marginTop: "20px" }}>
+        <p><strong>Medicine Name:</strong> Paracetamol</p>
+        <p><strong>Expiry Date:</strong> 20 March 2026</p>
+        <p><strong>Dosage Time:</strong></p>
+        <ul style={{ listStyle: "none" }}>
+          <li>🕗 8:00 AM</li>
+          <li>🌙 9:00 PM</li>
+        </ul>
+      </div>
+
+      <p style={{ marginTop: "30px", color: "green" }}>
+        ✔️ Reminder will be sent before expiry
+      </p>
     </div>
   );
 }
 
 export default Result;
+

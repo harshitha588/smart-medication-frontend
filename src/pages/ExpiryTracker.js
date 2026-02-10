@@ -1,32 +1,49 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 function ExpiryTracker() {
-  const cardStyle = {
-    border: "1px solid #ccc",
-    borderRadius: "10px",
-    padding: "15px",
-    marginBottom: "15px"
+  const [image, setImage] = useState(null);
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    // Later this image will be sent to backend
+    alert("Medicine image uploaded successfully!");
+    navigate("/result"); // go to result page
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
-      <h1>🧪 Medicine Expiry Tracker</h1>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h2>📸 Upload Medicine Photo</h2>
+      <p>Take or upload a photo of the medicine strip</p>
 
-      <div style={cardStyle}>
-        <h3>Paracetamol</h3>
-        <p>Expiry Date: 20 Feb 2026</p>
-        <p style={{ color: "green" }}>Status: Safe</p>
-      </div>
+      <input
+        type="file"
+        accept="image/*"
+        capture="environment"
+        onChange={(e) => setImage(e.target.files[0])}
+        style={{ marginTop: "20px" }}
+      />
 
-      <div style={cardStyle}>
-        <h3>Vitamin D</h3>
-        <p>Expiry Date: 10 Feb 2026</p>
-        <p style={{ color: "orange" }}>Status: Expiring Soon</p>
-      </div>
+      {image && (
+        <p style={{ marginTop: "10px", color: "green" }}>
+          Selected file: {image.name}
+        </p>
+      )}
 
-      <div style={cardStyle}>
-        <h3>Insulin</h3>
-        <p>Expiry Date: 30 Jan 2026</p>
-        <p style={{ color: "red" }}>Status: Expired</p>
-      </div>
+      <br />
+
+      <button
+        onClick={handleSubmit}
+        disabled={!image}
+        style={{
+          marginTop: "20px",
+          padding: "10px 20px",
+          fontSize: "16px",
+          cursor: image ? "pointer" : "not-allowed",
+        }}
+      >
+        Submit for Expiry Check
+      </button>
     </div>
   );
 }

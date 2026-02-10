@@ -1,34 +1,50 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 function Reminders() {
-  const cardStyle = {
-    border: "1px solid #ccc",
-    borderRadius: "10px",
-    padding: "15px",
-    marginBottom: "15px"
+  const [image, setImage] = useState(null);
+  const navigate = useNavigate();
+
+  const handleSubmit = () => {
+    alert("Prescription uploaded successfully!");
+    navigate("/result");
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
-      <h1>⏰ Reminders</h1>
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h2>📝 Upload Prescription</h2>
+      <p>Upload or take a photo of the prescription</p>
 
-      <div style={cardStyle}>
-        <h3>Paracetamol</h3>
-        <p>Time: 8:00 AM</p>
-        <p>Status: Upcoming</p>
-      </div>
+      <input
+        type="file"
+        accept="image/*"
+        capture="environment"
+        onChange={(e) => setImage(e.target.files[0])}
+        style={{ marginTop: "20px" }}
+      />
 
-      <div style={cardStyle}>
-        <h3>Vitamin D</h3>
-        <p>Time: 1:00 PM</p>
-        <p>Status: Taken</p>
-      </div>
+      {image && (
+        <p style={{ marginTop: "10px", color: "green" }}>
+          Prescription selected: {image.name}
+        </p>
+      )}
 
-      <div style={cardStyle}>
-        <h3>BP Tablet</h3>
-        <p>Time: 9:00 PM</p>
-        <p>Status: Missed</p>
-      </div>
+      <br />
+
+      <button
+        onClick={handleSubmit}
+        disabled={!image}
+        style={{
+          marginTop: "20px",
+          padding: "10px 20px",
+          fontSize: "16px",
+        }}
+      >
+        Extract Reminder Details
+      </button>
     </div>
   );
 }
 
 export default Reminders;
+
