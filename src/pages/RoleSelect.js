@@ -3,44 +3,36 @@ import { useNavigate } from "react-router-dom";
 function RoleSelect() {
   const navigate = useNavigate();
 
-  const cardStyle = {
-    width: "260px",
-    padding: "30px",
-    border: "1px solid #ccc",
-    borderRadius: "10px",
-    cursor: "pointer",
-    marginBottom: "20px"
-  };
-
   return (
     <div style={{ textAlign: "center", marginTop: "60px" }}>
-      <h1>Select Your Role</h1>
+      <h2>Select Your Role</h2>
       <p>Choose how you want to use the application</p>
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginTop: "40px"
-        }}
-      >
-        <div
-          style={cardStyle}
-          onClick={() => navigate("/patient")}
+      <div style={{ marginTop: "40px" }}>
+        <button
+          style={{ padding: "15px 30px", margin: "20px" }}
+          onClick={() => navigate("/login", { state: { role: "patient" } })}
         >
-          <h2>👤 Patient</h2>
-          <p>Manage medicines & reminders</p>
-        </div>
+          Patient
+        </button>
 
-        <div
-          style={cardStyle}
-          onClick={() => navigate("/caregiver")}
+        <button
+          style={{ padding: "15px 30px", margin: "20px" }}
+          onClick={() => navigate("/login", { state: { role: "caregiver" } })}
         >
-          <h2>👨‍⚕️ Caregiver</h2>
-          <p>Monitor patient medicines</p>
-        </div>
+          Caregiver
+        </button>
       </div>
+
+      <p style={{ marginTop: "30px" }}>
+        New user?{" "}
+        <span
+          style={{ color: "blue", cursor: "pointer" }}
+          onClick={() => navigate("/register")}
+        >
+          Register here
+        </span>
+      </p>
     </div>
   );
 }
