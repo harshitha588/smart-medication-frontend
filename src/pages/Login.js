@@ -1,85 +1,58 @@
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Message from "../components/Message";
 
 function Login() {
-  const [email, setEmail] = useState("");
-  const [otp, setOtp] = useState("");
-  const [showOtp, setShowOtp] = useState(false);
-  const [message, setMessage] = useState("");
-  const [type, setType] = useState("success");
-
   const navigate = useNavigate();
+  const location = useLocation();
+  const role = location.state?.role; // patient or caregiver
 
-  const sendOtp = () => {
-    if (!email) {
-      setType("error");
-      setMessage("Please enter email");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = () => {
+    if (!role) {
+      alert("Role missing. Please select role again.");
+      navigate("/");
       return;
     }
-    setType("success");
-    setMessage("OTP sent to your email (demo)");
-    setShowOtp(true);
-  };
 
-  const verifyOtp = () => {
-    if (!otp) {
-      setType("error");
-      setMessage("Please enter OTP");
-      return;
+    // TEMP frontend-only login
+    if (role === "patient") {
+      navigate("/patient-dashboard");
+    } else if (role === "caregiver") {
+      navigate("/caregiver-dashboard");
     }
-    setType("success");
-    setMessage("Login successful");
-    navigate("/result");
   };
 
   return (
     <div style={{ textAlign: "center", marginTop: "60px" }}>
-      <h1>Smart Medication & Expiry Tracker</h1>
+      <h2>Login ({role})</h2>
 
-      <div
-        style={{
-          width: "350px",
-          margin: "30px auto",
-          padding: "25px",
-          border: "1px solid #ccc",
-          borderRadius: "6px"
-        }}
+      <input
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        style={{ display: "block", margin: "10px auto", padding: "10px" }}
+      />
+
+      <input
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        style={{ display: "block", margin: "10px auto", padding: "10px" }}
+      />
+
+      <button
+        onClick={handleLogin}
+        style={{ padding: "10px 30px", marginTop: "20px" }}
       >
-        <h2>Login</h2>
-
-        <Message type={type} text={message} />
-
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
-        />
-
-        {showOtp && (
-          <input
-            type="text"
-            placeholder="OTP"
-            value={otp}
-            onChange={(e) => setOtp(e.target.value)}
-            style={{ width: "100%", padding: "10px", marginBottom: "10px" }}
-          />
-        )}
-
-        {!showOtp ? (
-          <button onClick={sendOtp} style={{ width: "100%", padding: "10px" }}>
-            Send OTP
-          </button>
-        ) : (
-          <button onClick={verifyOtp} style={{ width: "100%", padding: "10px" }}>
-            Verify OTP
-          </button>
-        )}
-      </div>
+        Login
+      </button>
     </div>
   );
 }
 
 export default Login;
+
