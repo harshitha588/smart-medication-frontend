@@ -6,18 +6,27 @@ function PatientDashboard() {
   return (
     <div className="container">
       <div className="card">
-        <h2>Patient Dashboard</h2>
-        <p>Manage your medicines</p>
+        <h2>📊 Patient Dashboard</h2>
 
-        <button onClick={() => navigate("/expiry")}>
-          Upload Medicine Photo
-        </button>
+        <div className="dashboard-grid">
+          <div
+            className="dashboard-item"
+            onClick={() => navigate("/expiry")}
+          >
+            📸 Upload Medicine
+          </div>
 
-        <button className="secondary" onClick={() => navigate("/reminders")}>
-          View Reminders
-        </button>
+          <div
+            className="dashboard-item"
+            onClick={() => navigate("/reminders")}
+          >
+            ⏰ View Reminders
+          </div>
 
-        <button className="gray">Profile</button>
+          <div className="dashboard-item">
+            📅 Check Expiry
+          </div>
+        </div>
       </div>
     </div>
   );

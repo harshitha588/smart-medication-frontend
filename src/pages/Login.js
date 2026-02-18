@@ -23,8 +23,7 @@ function Login() {
   return (
     <div className="container">
       <div className="card">
-        <h2>{role} Login</h2>
-        <p>Welcome back 👋</p>
+        <h2>🔐 {role} Login</h2>
 
         <input
           type="email"

@@ -1,10 +1,11 @@
 body {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #1f4037, #99f2c8);
   min-height: 100vh;
 }
 
+/* Center container */
 .container {
   display: flex;
   justify-content: center;
@@ -12,61 +13,83 @@ body {
   min-height: 100vh;
 }
 
+/* Glass card */
 .card {
-  background: white;
-  padding: 30px;
+  backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 40px;
   width: 90%;
-  max-width: 380px;
-  border-radius: 16px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
   text-align: center;
+  color: white;
 }
 
+/* Headings */
 .card h2 {
   margin-bottom: 10px;
-  color: #333;
+  font-weight: 600;
 }
 
-.card p {
-  color: #666;
-  font-size: 14px;
-}
-
+/* Inputs */
 input {
   width: 100%;
   padding: 12px;
-  margin-top: 12px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
+  margin-top: 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
   font-size: 14px;
 }
 
+/* Buttons */
 button {
   width: 100%;
   margin-top: 15px;
   padding: 12px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
-  background: #2575fc;
-  color: white;
-  font-size: 16px;
+  background: #ffffff;
+  color: #1f4037;
+  font-weight: bold;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
 button:hover {
-  background: #1a5fd1;
+  transform: scale(1.05);
+  background: #f0f0f0;
 }
 
+/* Secondary button */
 .secondary {
-  background: #6a11cb;
+  background: #2c3e50;
+  color: white;
 }
 
-.gray {
-  background: #999;
+.secondary:hover {
+  background: #1a252f;
 }
 
-.link {
-  color: #2575fc;
+/* Dashboard grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Dashboard card */
+.dashboard-item {
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.dashboard-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.5);
 }

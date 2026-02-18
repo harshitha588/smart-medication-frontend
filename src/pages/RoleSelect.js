@@ -6,26 +6,19 @@ function RoleSelect() {
   return (
     <div className="container">
       <div className="card">
-        <h2>Smart Medication</h2>
-        <p>Select your role to continue</p>
+        <h2>💊 Smart Medication</h2>
+        <p>Select your role</p>
 
         <button onClick={() => navigate("/login", { state: { role: "patient" } })}>
-          Patient
+          👤 Patient
         </button>
 
         <button
           className="secondary"
           onClick={() => navigate("/login", { state: { role: "caregiver" } })}
         >
-          Caregiver
+          🩺 Caregiver
         </button>
-
-        <p style={{ marginTop: "20px" }}>
-          New user?{" "}
-          <span className="link" onClick={() => navigate("/register")}>
-            Register
-          </span>
-        </p>
       </div>
     </div>
   );
