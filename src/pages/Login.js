@@ -40,6 +40,17 @@ function Login() {
         />
 
         <button onClick={handleLogin}>Login</button>
+
+        {/* NEW REGISTER LINK */}
+        <p style={{ marginTop: "15px", fontSize: "14px" }}>
+          New user?{" "}
+          <span
+            style={{ cursor: "pointer", fontWeight: "bold" }}
+            onClick={() => navigate("/register")}
+          >
+            Register here
+          </span>
+        </p>
       </div>
     </div>
   );
