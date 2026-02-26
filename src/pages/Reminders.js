@@ -2,7 +2,7 @@ function Reminders() {
   return (
     <div className="container">
       <div className="card">
-        <h2>⏰ Medicine Reminders</h2>
+        <h2>⏰ Reminders</h2>
 
         <div className="dashboard-grid">
           <div className="dashboard-item">

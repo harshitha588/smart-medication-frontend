@@ -3,15 +3,7 @@ import { useState } from "react";
 
 function Register() {
   const navigate = useNavigate();
-
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleRegister = () => {
-    alert("Registration Successful ✅");
-    navigate("/login");
-  };
 
   return (
     <div className="container">
@@ -25,35 +17,15 @@ function Register() {
           onChange={(e) => setName(e.target.value)}
         />
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button onClick={handleRegister}>Create Account</button>
-
-        <p style={{ marginTop: "15px", fontSize: "14px" }}>
-          Already have an account?{" "}
-          <span
-            style={{ cursor: "pointer", fontWeight: "bold" }}
-            onClick={() => navigate("/login")}
-          >
-            Login
-          </span>
-        </p>
+        <button onClick={() => navigate("/login")}>
+          Create Account
+        </button>
       </div>
     </div>
   );
 }
 
 export default Register;
-

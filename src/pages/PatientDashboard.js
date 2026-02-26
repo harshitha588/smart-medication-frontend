@@ -22,10 +22,6 @@ function PatientDashboard() {
           >
             ⏰ View Reminders
           </div>
-
-          <div className="dashboard-item">
-            📅 Check Expiry
-          </div>
         </div>
       </div>
     </div>

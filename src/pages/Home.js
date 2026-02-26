@@ -1,21 +1,28 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
+  const navigate = useNavigate();
+
   return (
-    <div style={{ textAlign: "center", marginTop: "80px" }}>
-      <h1>Smart Medication & Expiry Tracker</h1>
-      <p>Track medicines, expiry dates, and reminders easily</p>
+    <div className="container">
+      <div className="card">
+        <h1>💊 MediTrack AI</h1>
+        <p>Scan. Track. Stay Healthy.</p>
 
-      <Link to="/login">
-        <button style={{ marginRight: "10px" }}>Login</button>
-      </Link>
+        <button onClick={() => navigate("/login")}>
+          Login
+        </button>
 
-      <Link to="/register">
-        <button>Register</button>
-      </Link>
+        <button className="secondary" onClick={() => navigate("/register")}>
+          Register
+        </button>
+
+        <button onClick={() => navigate("/help")}>
+          Help
+        </button>
+      </div>
     </div>
   );
 }
 
 export default Home;
-
