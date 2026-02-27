@@ -5,9 +5,9 @@ function ExpiryTracker() {
   const [image, setImage] = useState(null);
 
   return (
-    <div className="container">
+    <div>
       <div className="card">
-        <h2>📸 Upload Medicine</h2>
+        <h2>Upload Medicine</h2>
 
         <button onClick={() => fileRef.current.click()}>
           Open Camera
@@ -22,7 +22,7 @@ function ExpiryTracker() {
           onChange={(e) => setImage(e.target.files[0])}
         />
 
-        {image && <p>Selected: {image.name}</p>}
+        {image && <p>{image.name}</p>}
       </div>
     </div>
   );

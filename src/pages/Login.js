@@ -3,41 +3,30 @@ import { useState } from "react";
 
 function Login() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("patient");
 
   const handleLogin = () => {
-    navigate("/patient-dashboard");
+    role === "patient"
+      ? navigate("/patient-dashboard")
+      : navigate("/caregiver-dashboard");
   };
 
   return (
-    <div className="container">
-      <div className="card">
-        <h2>🔐 Login</h2>
+    <div className="auth-container">
+      <h2>Login</h2>
 
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
+      <select
+        value={role}
+        onChange={(e) => setRole(e.target.value)}
+      >
+        <option value="patient">Patient</option>
+        <option value="caregiver">Caregiver</option>
+      </select>
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+      <input placeholder="Email" />
+      <input type="password" placeholder="Password" />
 
-        <button onClick={handleLogin}>Login</button>
-
-        <p style={{ marginTop: "15px" }}>
-          New user?{" "}
-          <span style={{ cursor: "pointer" }} onClick={() => navigate("/register")}>
-            Register here
-          </span>
-        </p>
-      </div>
+      <button onClick={handleLogin}>Login</button>
     </div>
   );
 }

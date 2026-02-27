@@ -1,28 +1,19 @@
-import { useNavigate } from "react-router-dom";
-
 function PatientDashboard() {
-  const navigate = useNavigate();
-
   return (
-    <div className="container">
-      <div className="card">
-        <h2>📊 Patient Dashboard</h2>
+    <div className="dashboard-grid">
+      <div className="dashboard-card">
+        <h3>💊 Active Medicines</h3>
+        <p>3 Medicines</p>
+      </div>
 
-        <div className="dashboard-grid">
-          <div
-            className="dashboard-item"
-            onClick={() => navigate("/expiry")}
-          >
-            📸 Upload Medicine
-          </div>
+      <div className="dashboard-card">
+        <h3>⏰ Upcoming Reminders</h3>
+        <p>2 Today</p>
+      </div>
 
-          <div
-            className="dashboard-item"
-            onClick={() => navigate("/reminders")}
-          >
-            ⏰ View Reminders
-          </div>
-        </div>
+      <div className="dashboard-card">
+        <h3>📅 Expiring Soon</h3>
+        <p>1 Medicine</p>
       </div>
     </div>
   );

@@ -9,6 +9,7 @@ import CaregiverDashboard from "./pages/CaregiverDashboard";
 import ExpiryTracker from "./pages/ExpiryTracker";
 import Reminders from "./pages/Reminders";
 import Help from "./pages/Help";
+import Layout from "./components/Layout";
 
 function App() {
   return (
@@ -17,11 +18,51 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/patient-dashboard" element={<PatientDashboard />} />
-        <Route path="/caregiver-dashboard" element={<CaregiverDashboard />} />
-        <Route path="/expiry" element={<ExpiryTracker />} />
-        <Route path="/reminders" element={<Reminders />} />
-        <Route path="/help" element={<Help />} />
+
+        <Route
+          path="/patient-dashboard"
+          element={
+            <Layout>
+              <PatientDashboard />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/caregiver-dashboard"
+          element={
+            <Layout>
+              <CaregiverDashboard />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/expiry"
+          element={
+            <Layout>
+              <ExpiryTracker />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/reminders"
+          element={
+            <Layout>
+              <Reminders />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/help"
+          element={
+            <Layout>
+              <Help />
+            </Layout>
+          }
+        />
       </Routes>
     </Router>
   );
